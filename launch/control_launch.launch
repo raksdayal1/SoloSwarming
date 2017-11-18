@@ -1,0 +1,17 @@
+<!--
+ This is a launch file which launches one instance of the iris_control node.
+ This launch files is called from an upper level launch file which remaps the topic names
+-->
+<launch>
+<arg name="mav_name" default="solo" />
+<arg name="mav_id" default="1"/>
+
+  <group ns="$(arg mav_name)$(arg mav_id)">
+    <node name="solo_communication_$(arg mav_name)$(arg mav_id)" pkg="swarm_control" type="swarm_comm.py" output="screen">
+    </node>
+    <node name="solo_formation_$(arg mav_name)$(arg mav_id)" pkg="swarm_control" type="swarm_formation.py" output="screen">
+    </node>
+    <node name="solo_control_$(arg mav_name)$(arg mav_id)" pkg="swarm_control" type="swarm_controller.py" output="screen">
+    </node> 
+  </group>
+</launch>

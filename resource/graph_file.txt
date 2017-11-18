@@ -1,0 +1,3 @@
+nodes:=2
+type:=directed
+adjacencyfile:=adjacency.txt

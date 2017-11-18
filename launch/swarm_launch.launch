@@ -1,0 +1,16 @@
+<!-- launch file for UAVS swarm -->
+<!-- in SoloInterface.py 3rd arg is set to 1 to run in simulation mode -->
+<launch>
+  <arg name="mav_name" default="solo" />
+
+  <group ns="$(arg mav_name)1">
+    <node name="solo_interface" pkg="swarm_control" type="SoloInterface.py" args="tcp:192.168.1.115:5760" output="screen">
+    </node> 
+  </group>
+  
+  <group ns="$(arg mav_name)2">
+    <node name="solo_interface" pkg="swarm_control" type="SoloInterface.py" args="tcp:192.168.1.105:5760 " output="screen">
+    </node> 
+  </group>  
+</launch>
+
